@@ -1,0 +1,9 @@
+const StudentController = {
+    create(req, res) {
+        const body = req.body;
+        req.json({
+            "message":"Student Created.",
+            "body": body
+        })
+    }
+}
