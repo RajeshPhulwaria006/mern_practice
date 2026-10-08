@@ -1,9 +1,45 @@
 const StudentController = {
     create(req, res) {
-        const body = req.body;
-        req.json({
+        const body = req.body
+        res.json({
             "message":"Student Created.",
             "body": body
         })
+    },
+    readAll(req, res) {
+        res.json({
+            "message":"All Students."
+        })
+    },
+    readOne(req, res) {
+        const id = req.params.id
+        res.json({
+            "message":"Student Found.",
+            "body": {
+                "id": id
+            }
+        })
+    },
+    update(req, res) {
+        const id = req.params.id
+        const body = req.body
+        res.json({
+            "message":"Student Updated.",
+            "body": {
+                "id": id,
+                "updatedData": body
+            }
+        })
+    },
+    destroy(req, res) {
+        const id = req.params.id
+        res.json({
+            "message":"Student Deleted.",
+            "body": {
+                "id": id
+            }
+        })
     }
 }
+
+export default StudentController
