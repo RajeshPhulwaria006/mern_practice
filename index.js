@@ -8,11 +8,11 @@ app.use(express.json())
 mongoose.connect("mongodb://localhost:27017/studentDB")
 
 app.get("/", (req, res) => {
-  res.send("Welcome to Routing Project 🐱‍👤");
+  res.send("Welcome to Routing Project")
 });
 
 app.get("/about", (req, res) => {
-  res.send("Something is happening here...");
+  res.send("Something is happening here...")
 });
 
 app.post("/student", StudentController.create);
