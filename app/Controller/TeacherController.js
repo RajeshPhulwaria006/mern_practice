@@ -1,11 +1,9 @@
-const StudentModel = require("../models/StudentModel");
-
-const StudentController = {
+const TeacherController = {
   async create(req, res) {
 
     try {
       const body = req.body;
-      await StudentModel.create(body);
+      await TeacherModel.create(body);
   
       res.send({
         message: "Success! New record created.",
@@ -20,7 +18,7 @@ const StudentController = {
   async readAll(req, res) {
 
     try {
-      const students = await StudentModel.find();
+      const students = await TeacherModel.find();
   
       res.send({
         message: "Success! 46 records found.",
@@ -36,11 +34,11 @@ const StudentController = {
 
     try {
       const params = req.params;
-      const studentDetails = await StudentModel.findById(params.id);
+      const teacherDetails = await TeacherModel.findById(params.id);
   
       res.send({
         message: "Success! Student details found.",
-        data: studentDetails,
+        data: teacherDetails,
       });
       
     } catch (error) {
@@ -53,7 +51,7 @@ const StudentController = {
     try {
       const params = req.params;
       const body = req.body;
-      await StudentModel.findByIdAndUpdate(params.id, body);
+      await TeacherModel.findByIdAndUpdate(params.id, body);
   
       res.send({
         message: "Success! record has been updated.",
@@ -68,7 +66,7 @@ const StudentController = {
   async destroy(req, res) {
     try {
       const params = req.params;
-      await StudentModel.findByIdAndDelete(params.id);
+      await TeacherModel.findByIdAndDelete(params.id);
   
       res.send({
         message: "Success! record has been deleted.",
@@ -79,7 +77,7 @@ const StudentController = {
         "error": error.message
       })
     }
-  },
+  }
 };
 
-module.exports = StudentController;
+module.exports = TeacherController;
