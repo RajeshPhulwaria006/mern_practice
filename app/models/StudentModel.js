@@ -1,28 +1,30 @@
-const { Schema, model } = require("mongoose")
+// const { default: mongoose } = require("mongoose");
+
+const { Schema, model } = require("mongoose");
 
 const StudentSchema = new Schema({
     name: {
         type: String,
         required: true
     },
-    rollno: {
+     fatherName: {
         type: String,
         required: true
     },
-    course: {
+     email: {
         type: String,
-        required: true
     },
-    email: {
+     phone: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
-    dob: {
+     dob: {
         type: Date,
         required: true
-    }
+    },
 })
 
-const StudentModel = model("student", StudentSchema)
+const StudentModel = model("Student", StudentSchema);
 
 module.exports = StudentModel
